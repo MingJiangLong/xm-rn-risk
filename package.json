@@ -1,0 +1,22 @@
+{
+  "name": "xm-rn-risk",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "react-native-contacts": "*",
+    "react-native-device-info": "*",
+    "xm-rn-utils": "*",
+    "xm-rn-permissions": "*",
+    "dayjs": "*",
+    "react-native-calendar-events": "*",
+    "@react-native-community/geolocation": "*",
+    "react-native-jailbreak":"*"
+  }
+}
