@@ -3,7 +3,7 @@ import DeviceInfo from 'react-native-device-info'
 import { addTimeout, toFixed } from "xm-rn-utils";
 import Jailbreak from 'react-native-jailbreak'
 
-const fetchIpAddress = addTimeout(
+export const fetchIpAddress = addTimeout(
     async function () {
         try {
             let resp = await fetch("https://icanhazip.com/")
@@ -38,7 +38,7 @@ export async function buildIOSDeviceInfo() {
     return JSON.stringify(result)
 }
 
-const getPostData = async () => {
+export const buildDefaultPostData = async () => {
     const phoneName = Platform.select({
         android: `${DeviceInfo.getBrand()} ${DeviceInfo.getModel()}`,
         ios: await DeviceInfo.getDeviceName()
@@ -66,7 +66,7 @@ const getPostData = async () => {
     }
     return Promise.resolve(temp);
 }
-const getWebviewEnv = async () => {
+export const buildWebviewEnv = async () => {
     const iosName = await DeviceInfo.getDeviceName();
     const androidName = `${DeviceInfo.getBrand()} ${DeviceInfo.getModel()}`
     const phoneName = Platform.select({

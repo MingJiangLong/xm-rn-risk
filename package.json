@@ -10,13 +10,17 @@
   "license": "ISC",
   "description": "",
   "peerDependencies": {
-    "react-native-contacts": "*",
-    "react-native-device-info": "*",
-    "xm-rn-utils": "*",
-    "xm-rn-permissions": "*",
+    "@react-native-community/geolocation": "*",
     "dayjs": "*",
     "react-native-calendar-events": "*",
-    "@react-native-community/geolocation": "*",
-    "react-native-jailbreak":"*"
+    "react-native-contacts": "*",
+    "react-native-device-info": "*",
+    "react-native-jailbreak": "*",
+    "xm-rn-permissions": "*",
+    "xm-rn-utils": "*"
+  },
+  "devDependencies": {
+    "dayjs": "^1.11.19",
+    "react-native-calendar-events": "^2.2.0"
   }
 }

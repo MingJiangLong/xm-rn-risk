@@ -143,6 +143,8 @@ export const createRiskBuilder = <T extends I_SDK>(
     }
 }
 
-
+export { buildDefaultPostData, buildWebviewEnv } from './build-device-info'
+export { ifNotExistOrWrite, addCalendarEvents } from './build-calendar'
+export { getCurrentLocationStr, getLocation } from './build-location'
 
 
