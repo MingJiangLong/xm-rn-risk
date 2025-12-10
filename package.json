@@ -15,12 +15,16 @@
     "react-native-calendar-events": "*",
     "react-native-contacts": "*",
     "react-native-device-info": "*",
+    "react-native-in-app-review": "*",
     "react-native-jailbreak": "*",
     "xm-rn-permissions": "*",
-    "xm-rn-utils": "*"
+    "xm-rn-utils": "*",
+    "react-native-select-contact": "*",
+    "react-native": ">=0.81.5",
+    "react": "*"
   },
-  "devDependencies": {
-    "dayjs": "^1.11.19",
-    "react-native-calendar-events": "^2.2.0"
+  "devDependencies": {},
+  "dependencies": {
+    "react-native-image-picker": "^8.2.1"
   }
 }

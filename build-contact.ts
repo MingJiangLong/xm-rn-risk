@@ -3,6 +3,7 @@ import {
     getGroups as getContactGroups, contactsInGroup,
     Contact, getAll as getAllContacts
 } from 'react-native-contacts'
+import { selectContactPhone as selectContactPhone2 } from 'react-native-select-contact'
 interface I_ContactGroups {
     groupName: string
     list: Contact[]
@@ -49,4 +50,12 @@ export async function buildIOSContactInfo() {
         console.error(`[${Platform.OS}风控数据]: 构建联系人信息失败`, error);
         throw error
     }
+}
+export const selectContactPhone = async (...args: Parameters<typeof selectContactPhone2>) => {
+    const contact = await selectContactPhone2(...args)
+    const selectedPhone = contact?.selectedPhone;
+    return {
+        phone: selectedPhone?.number,
+        name: contact?.contact.name
+    } as const
 }
