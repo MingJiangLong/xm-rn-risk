@@ -15,7 +15,11 @@ export function getLocation() {
                 longitude: info.coords.longitude,
                 is_current: true
             })
-        }, (error: any) => { e(new TimeoutError(error)) }, { timeout: 3000, enableHighAccuracy: false },
+        }, (error: any) => {
+            const code = error?.code;
+            if (code == 2) return e(new TimeoutError(error))
+            e(error)
+        }, { timeout: 10000, enableHighAccuracy: false },
         );
     })
     return addTimeout(() => fetchLocationPromise)()

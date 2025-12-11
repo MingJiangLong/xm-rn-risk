@@ -1,15 +1,16 @@
 import { Platform } from 'react-native';
-import {
-    getGroups as getContactGroups, contactsInGroup,
-    Contact, getAll as getAllContacts
-} from 'react-native-contacts'
+import ReactNativeContacts, { Contact } from 'react-native-contacts'
 import { selectContactPhone as selectContactPhone2 } from 'react-native-select-contact'
+const {
+    getGroups, contactsInGroup,
+    getAll: getAllContacts
+} = ReactNativeContacts
 interface I_ContactGroups {
     groupName: string
     list: Contact[]
 }
 async function getContactsInGroup() {
-    const groups = await getContactGroups();
+    const groups = await getGroups();
     let temp: I_ContactGroups[] = []
     for (let item of groups) {
         const data = await contactsInGroup(item.identifier)

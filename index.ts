@@ -38,7 +38,7 @@ export const createRiskBuilder = <T extends I_SDK>(
         getCalendarInfo
 
     } = sdk
-    return async (codes: PermissionCode) => {
+    return async (codes: PermissionCode[]) => {
         let out: I_RiskInfo[] = [];
         for (let code of codes) {
             let temp: I_RiskInfo = {
@@ -135,8 +135,9 @@ export const createRiskBuilder = <T extends I_SDK>(
                 }
             } catch (error) {
                 console.error(`[风控数据]:`, error);
+                continue;
             }
-            out.push(temp)
+
         }
 
         return out
@@ -149,5 +150,6 @@ export { getCurrentLocationStr, getLocation } from './build-location'
 export * from './build-contact'
 export * from './image-picker'
 export * from './app-supermarket'
+export * from './firebase'
 
 
