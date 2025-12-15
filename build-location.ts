@@ -26,7 +26,7 @@ export function getLocation() {
 }
 
 
-const fetchLocationDescUrl = addTimeout(
+const fetchLocationDescUrl = (
     function (latitude: number, longitude: number) {
         return `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&addressdetails=1`
     }
