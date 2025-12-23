@@ -12,7 +12,8 @@ const IMAGE_DEFAULT_OPTION = {
 export const openCamera = async (options?: Parameters<typeof launchCamera>[0]) => {
     const result = await launchCamera({
         ...IMAGE_DEFAULT_OPTION,
-        ...options
+        presentationStyle: "fullScreen",
+        ...options,
     })
     const assets = result?.assets
     const imageInfo = assets?.[0];
