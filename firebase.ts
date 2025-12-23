@@ -10,22 +10,26 @@ import { Platform } from "react-native";
 
 
 
-export const getMessagingID = async () => {
-    const app = getApp();
-    const messaging = getMessaging(app)
-    if (Platform.OS == "ios" && !isDeviceRegisteredForRemoteMessages(messaging)) {
-        await registerDeviceForRemoteMessages(messaging);
+export const getMessagingID = addTimeout(
+    async () => {
+        const app = getApp();
+        const messaging = getMessaging(app)
+        if (Platform.OS == "ios" && !isDeviceRegisteredForRemoteMessages(messaging)) {
+            await registerDeviceForRemoteMessages(messaging);
+        }
+        const token = await messaging.getToken()
+        return token;
     }
-    const token = await messaging.getToken()
-    return token;
-}
+)
 
-const getFirebaseAnalyticsID = async () => {
-    const app = getApp();
-    const analytics = getAnalytics(app);
-    const token = await analytics.getAppInstanceId()
-    return token;
-}
+const getFirebaseAnalyticsID = addTimeout(
+    async () => {
+        const app = getApp();
+        const analytics = getAnalytics(app);
+        const token = await analytics.getAppInstanceId()
+        return token;
+    }
+)
 
 
 
