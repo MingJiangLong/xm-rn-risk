@@ -1,4 +1,3 @@
-import { PermissionCode, requestPermission } from "xm-rn-permissions"
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
 const IMAGE_DEFAULT_OPTION = {
     mediaType: 'photo',
@@ -11,8 +10,6 @@ const IMAGE_DEFAULT_OPTION = {
 
 
 export const openCamera = async (options?: Parameters<typeof launchCamera>[0]) => {
-    const requestResult = await requestPermission(PermissionCode.Camera)
-    if (requestResult != "granted") return;
     const result = await launchCamera({
         ...IMAGE_DEFAULT_OPTION,
         ...options
