@@ -32,23 +32,25 @@ const fetchLocationDescUrl = (
     }
 )
 
-export async function getCurrentLocationStr() {
-    const location = await getLocation();
-    let url = fetchLocationDescUrl(location.latitude, location.longitude)
-    const res = await fetch(url, { method: "GET" })
-    const tempData = await res.text()
-    const resJson = JSON.parse(tempData)
-    return {
-        ...resJson?.address,
-        ...location
-    } as {
-        city: string
-        state: string
-        country: string
-        postcode: string
-        province?: string
+export const getCurrentLocationStr = addTimeout(
+    async function () {
+        const location = await getLocation();
+        let url = fetchLocationDescUrl(location.latitude, location.longitude)
+        const res = await fetch(url, { method: "GET" })
+        const tempData = await res.text()
+        const resJson = JSON.parse(tempData)
+        return {
+            ...resJson?.address,
+            ...location
+        } as {
+            city: string
+            state: string
+            country: string
+            postcode: string
+            province?: string
+        }
     }
-}
+)
 
 export async function buildLocationInfo() {
     try {
